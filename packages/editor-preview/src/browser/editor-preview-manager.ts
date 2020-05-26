@@ -55,7 +55,9 @@ export class EditorPreviewManager extends WidgetOpenHandler<EditorPreviewWidget 
     protected init(): void {
         super.init();
         this.onCreated(widget => {
+            alert('Widget Created');
             if (widget instanceof EditorPreviewWidget) {
+                alert('Preview Widget Created');
                 return this.handlePreviewWidgetCreated(widget);
             }
         });

@@ -690,7 +690,7 @@ export class SearchInWorkspaceResultTreeWidget extends TreeWidget {
         } else {
             fileUri = new URI(node.fileUri);
         }
-
+        alert(preview);
         const opts: EditorOpenerOptions | undefined = !DiffUris.isDiffUri(fileUri) ? {
             selection: {
                 start: {
@@ -702,7 +702,8 @@ export class SearchInWorkspaceResultTreeWidget extends TreeWidget {
                     character: node.character - 1 + node.length
                 }
             },
-            mode: 'reveal'
+            mode: 'reveal',
+            preview,
         } : undefined;
 
         const editorWidget = await this.editorManager.open(fileUri, opts);
